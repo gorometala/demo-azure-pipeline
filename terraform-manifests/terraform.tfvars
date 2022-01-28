@@ -6,5 +6,5 @@ resource_group_name = "rg"
 postgresql_db_name = "postgresql"
 postgresql_db_username = "dbadmin"
 
-link_private = "gorometalaVnetZone.com"
+
 

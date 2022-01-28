@@ -17,12 +17,12 @@ resource "azurerm_subnet" "dbsubnet" {
 }
 
 resource "azurerm_private_dns_zone" "dns" {
-  name                = var.dns_name
+  name                = "${azurerm_subnet.dbsubnet.name}.postgres.database.azure.com"
   resource_group_name = azurerm_resource_group.rg.name
 }
 
 resource "azurerm_private_dns_zone_virtual_network_link" "link" {
-  name                  = var.link_private
+  name                  =  "${azurerm_subnet.dbsubnet.name}VnetZone.com"
   private_dns_zone_name = azurerm_private_dns_zone.dns.name
   virtual_network_id    = azurerm_virtual_network.vnet.id
   resource_group_name   = azurerm_resource_group.rg.name
